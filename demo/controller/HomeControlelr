@@ -1,0 +1,23 @@
+package com.example.demo.controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HomeController {
+
+
+ @Autowired
+ EmployeeRepository employeeRepository;
+
+    @GetMapping("/home")
+    public     Map<Integer, Employee>  getHome() {
+        return employeeRepository.getEmployee()
+    }
+
+    @GetMappinging("/getEmployee")
+    public String postHome(@RequestParam(value = "id") Integer  id) {
+        return employeeRepository.getEmployee(id);
+    }
+}
